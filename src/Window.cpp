@@ -3,6 +3,12 @@
 Window::Window(std::string_view title, int width, int height)
     : _window(SDL_CreateWindow(title.data(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0), SDL_DestroyWindow)
 {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+        SDL_Quit();
+        util::panic("SDL Initialization failed");
+    }
+
     if (!_window)
     {
         SDL_Quit();

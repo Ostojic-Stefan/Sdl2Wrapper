@@ -13,7 +13,6 @@
 struct RendererAdapter
 {
 public:
-    // RendererAdapter(SDL_Window *const window);
     RendererAdapter(Window &window);
     void clear_frame(Colors color) const;
     void present_frame() const;
